@@ -1,0 +1,23 @@
+
+enum SocialMedia {
+    X
+    LinkedIn
+    Facebook
+}
+
+type Profile {
+    url: String!
+    socialMedia: SocialMedia
+}
+
+type User {
+    name: String!
+    age: Int
+    profiles: [Profile!]
+}
+
+
+type Query {
+    hello: String!
+    getUsers: [User!]
+}
