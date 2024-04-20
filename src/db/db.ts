@@ -11,20 +11,30 @@ todos: [
       name: 'math2',
       content: 'exercices2',
       status: 'CANCELED',
+      userId:1
+    },
+     {
+      id: 3,
+      name: 'math2',
+      content: 'exercices2',
+      status: 'CANCELED',
       userId:2
     },
   ],
 
-Users:[
+users:[
     {
         id: 1,
         name: 'farah',
-        email:'farah@'
+        email:'farah@',
+        // todoIds:[1,2]
       },
       {
         id: 2,
         name: 'foufa',
-        email:'foufa@'
+        email:'foufa@',
+       // todoIds:[3]
+
       }
 
 

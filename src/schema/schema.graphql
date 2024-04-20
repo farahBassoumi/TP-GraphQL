@@ -12,16 +12,17 @@ type Profile {
 type User {
   id:ID!
   name: String!
-  age: Int
+  email:String
   profiles: [Profile!]
-  todos:[Todo]
+  todos:[Todo]!
 }
 
 type Query {
-  hello: String!
   getUsers: [User!]
   getTodos:[Todo]!
   getTodoById(id:Int):Todo!
+  getUserById(id:Int):User
+
 }
 type Todo {
   id: ID!
