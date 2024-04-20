@@ -1,6 +1,6 @@
 import { createSchema, createYoga } from "graphql-yoga";
 import { createServer } from "http";
-import { Query } from "./resolvers/query";
+import { Query } from "./resolvers/Query";
 
 const fs = require("fs");
 const path = require("path");

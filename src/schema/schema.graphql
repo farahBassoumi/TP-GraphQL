@@ -1,23 +1,37 @@
-
 enum SocialMedia {
-    X
-    LinkedIn
-    Facebook
+  X
+  LinkedIn
+  Facebook
 }
 
 type Profile {
-    url: String!
-    socialMedia: SocialMedia
+  url: String!
+  socialMedia: SocialMedia
 }
 
 type User {
-    name: String!
-    age: Int
-    profiles: [Profile!]
+  id:ID!
+  name: String!
+  age: Int
+  profiles: [Profile!]
+  todos:[Todo]
 }
 
-
 type Query {
-    hello: String!
-    getUsers: [User!]
+  hello: String!
+  getUsers: [User!]
+  getTodos:[Todo]!
+  getTodoById(id:Int):Todo!
+}
+type Todo {
+  id: ID!
+  name: String!
+  content: String!
+  status: TodoStatusEnum!
+  user:User!
+}
+enum TodoStatusEnum {
+  WAINTING
+  DONE
+  CANCELED
 }
