@@ -4,6 +4,7 @@ import { Query } from "./resolvers/Query";
 import { Todo } from "./resolvers/Todo";
 import { User } from "./resolvers/User";
 import {db} from "./db/db"
+import { Mutation } from "./resolvers/Mutation";
 const fs = require("fs");
 const path = require("path");
 export const schema = createSchema({
@@ -14,7 +15,8 @@ export const schema = createSchema({
     resolvers: {
         Query,
         Todo,
-        User
+        User,
+        Mutation
     },
   
 

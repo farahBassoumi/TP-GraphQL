@@ -3,6 +3,11 @@ enum SocialMedia {
   LinkedIn
   Facebook
 }
+enum TodoStatusEnum {
+  WAITING
+  DONE
+  CANCELED
+}
 
 type Profile {
   url: String!
@@ -17,13 +22,9 @@ type User {
   todos:[Todo]!
 }
 
-type Query {
-  getUsers: [User!]
-  getTodos:[Todo]!
-  getTodoById(id:Int):Todo!
-  getUserById(id:Int):User
 
-}
+
+
 type Todo {
   id: ID!
   name: String!
@@ -31,8 +32,14 @@ type Todo {
   status: TodoStatusEnum!
   user:User!
 }
-enum TodoStatusEnum {
-  WAINTING
-  DONE
-  CANCELED
+
+
+type Query {
+  getUsers: [User!]
+  getTodos:[Todo]!
+  getTodoById(id:Int):Todo!
+  getUserById(id:Int):User
+}
+type Mutation{
+  addTodo(name:String!,content:String!,userId:Int!):Todo!
 }
