@@ -33,7 +33,6 @@ export const Mutation = {
       if (todo == undefined || todo == null) {
         throw new Error(` the todo${updateTodoInput.name} does not exist`);
       } else {
-
         updateTodoInput.userId ? (todo.userId = updateTodoInput.userId) : null;
         updateTodoInput.name ? (todo.name = updateTodoInput.name) : null;
         updateTodoInput.content
@@ -44,22 +43,13 @@ export const Mutation = {
       return todo;
     }
   },
-  deleteTodo: (
-    parent: any,
-    id: number,
-    { updateTodoInput }: any,
-    { db }: any,
-    info: any
-  ) => {
-    const todo = db.todos.filter(
-      (todo: any) => todo.name === updateTodoInput.name
-    );
-    if (todo === undefined || todo === null) {
-      console.log(` todo of the name ${updateTodoInput.name} does not exist`);
-      throw new Error(
-        ` todo of the name ${updateTodoInput.name} does not exist`
-      );
+  deleteTodo: (parent: any, {todoId}:any, { db }: any, info: any) => {
+    // console.log('TODOI4DDD,',todoId);
+    const indexTodo = db.todos.findIndex((todo: any) => todo.id === todoId);
+    if (indexTodo===-1) {
+      throw new Error(` the todo ${todoId} does not exist`);
     } else {
+      const [todo] = db.todos.splice(indexTodo, 1);
       return todo;
     }
   },
@@ -68,7 +58,4 @@ function existeInArray(array: any, attribut: any, value: any) {
   const element = array.some((elem: any) => elem[attribut] === value);
   return element !== null;
 }
-function verify(elem: any) {
-  if (elem == undefined || elem === null) return false;
-  return true;
-}
+

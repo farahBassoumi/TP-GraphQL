@@ -43,7 +43,7 @@ type Query {
 type Mutation{ 
   addTodo(todoInput:TodoAddInput):Todo!
   updateTodo(todoId:Int!,updateTodoInput:TodoUpdateInput):Todo!
-  deleteTodo(id:Int!):Todo!
+  deleteTodo(todoId:Int!):Todo!
 }
 input TodoAddInput{
   name:String!
