@@ -15,6 +15,11 @@
   "dependencies": {
     "@graphql-tools/schema": "10.0.3",
     "graphql": "16.8.1",
-    "graphql-yoga": "3.9.0"
+    "graphql-yoga": "3.9.0",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7"
   }
 }

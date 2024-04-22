@@ -40,6 +40,19 @@ type Query {
   getTodoById(id:Int):Todo!
   getUserById(id:Int):User
 }
-type Mutation{
-  addTodo(name:String!,content:String!,userId:Int!):Todo!
+type Mutation{ 
+  addTodo(todoInput:TodoAddInput):Todo!
+  updateTodo(todoId:Int!,updateTodoInput:TodoUpdateInput):Todo!
+  deleteTodo(id:Int!):Todo!
+}
+input TodoAddInput{
+  name:String!
+  content:String!
+  userId:Int!
+}
+input TodoUpdateInput{
+  name:String
+  content:String
+  userId:Int
+  status:TodoStatusEnum
 }
