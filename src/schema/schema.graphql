@@ -1,3 +1,19 @@
+type Query {
+  getUsers: [User!]
+  getTodos:[Todo]!
+  getTodoById(id:Int):Todo!
+  getUserById(id:Int):User
+}
+type Mutation{ 
+  addTodo(todoInput:TodoAddInput):Todo!
+  updateTodo(todoId:Int!,updateTodoInput:TodoUpdateInput):Todo!
+  deleteTodo(todoId:Int!):Todo!
+}
+
+type Subscription{
+  todo:Todo!
+}
+
 enum SocialMedia {
   X
   LinkedIn
@@ -34,17 +50,7 @@ type Todo {
 }
 
 
-type Query {
-  getUsers: [User!]
-  getTodos:[Todo]!
-  getTodoById(id:Int):Todo!
-  getUserById(id:Int):User
-}
-type Mutation{ 
-  addTodo(todoInput:TodoAddInput):Todo!
-  updateTodo(todoId:Int!,updateTodoInput:TodoUpdateInput):Todo!
-  deleteTodo(todoId:Int!):Todo!
-}
+
 input TodoAddInput{
   name:String!
   content:String!
